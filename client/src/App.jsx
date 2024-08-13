@@ -4,13 +4,13 @@ import './App.css'
 // import Login from './Pages/Login.jsx'
 // import Navbar from './Components/Navbar.jsx'
 import Home from './Pages/Home.jsx'
-
+import Signup from './Pages/Signup.jsx'
 
 function App() {
 
   return (
     <>
-      <Home/>
+      <Signup/>
     </>
   )
 }
