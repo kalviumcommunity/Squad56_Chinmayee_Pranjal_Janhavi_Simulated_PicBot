@@ -42,14 +42,28 @@
     height:4.5vh;
     border:none;
 }
-.generate button{
+.generateBtn{
     font-family: 'Inter', sans-serif;
     width: 8vw;
     padding:0.55vw;
     font-size:13px;
+    margin-right: -19px;
     background-color: #AE1FB2;
     color:rgb(255, 255, 255);
     border:none;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
+.explore{
+    font-family: 'Inter', sans-serif;
+    width: 10vw;
+    padding:0.75vw;
+    font-size:18px;
+    margin-top: 40px;
+    margin-left: 109px;
+    background-color: #AE1FB2;
+    color:rgb(255, 255, 255);
+    border:none;
+    border-radius: 15px;
+    cursor: pointer;
+}
