@@ -4,7 +4,6 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
     box-shadow: 3px 3px 4px rgba(140, 140, 140, 0.87);
 }
 
