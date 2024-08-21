@@ -4,9 +4,8 @@ import chinmayee from "../assets/chinmayee.jpg"
 import janhavi from "../assets/janhavi.jpg"
 import pranjal from "../assets/pranjal.jpg"
 import { SocialIcon } from 'react-social-icons'
-
-
 import "../Pages/Creators.css"
+
 
 function Creators() {
     return (
@@ -18,7 +17,7 @@ function Creators() {
                     <img width={300} className='janhaviPhoto' src={janhavi} alt="" />
                     <div className="text">
                     <h3 className='name'>Janhavi Hivarekar</h3>
-                    <p className='selfIntro'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis illo, saepe eaque molestiae soluta voluptates optio numquam. Recusandae sunt iure dicta! Doloribus molestias maxime, amet quae maiores modi pariatur?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim doloribus, consequatur impedit accusamus necessitatibus veniam culpa! Beatae expedita unde nostrum pariatur, sunt ea cumque ipsa eligendi est cum voluptates obcaecati.</p>
+                    <p className='selfIntro'>Hello!👋 I'm Janhavi Hivarekar, a second-year B.Tech Computer Science student at MITADT University. With a passion for technology and innovation, I am excited to contribute my skills and creativity to this project.🌟 My journey in computer science has been both challenging and rewarding, and I look forward to exploring new horizons and making impactful contributions in the tech world.</p>
                 </div>
                 <div className='icon'>
                     <SocialIcon target='blank' network='github' url='https://github.com/Janhavi003'/>
@@ -32,7 +31,7 @@ function Creators() {
                     <img className='chinmayeePhoto' width={300} src={chinmayee} alt="" />
                     <div className="text">
                     <h3 className='name'>Chinmayee Harane</h3>
-                    <p className='selfIntro'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis illo, saepe eaque molestiae soluta voluptates optio numquam. Recusandae sunt iure dicta! Doloribus molestias maxime, amet quae maiores modi pariatur?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim doloribus, consequatur impedit accusamus necessitatibus veniam culpa! Beatae expedita unde nostrum pariatur, sunt ea cumque ipsa eligendi est cum voluptates obcaecati.</p>
+                    <p className='selfIntro'>Hello!👋 I'm Chinmayee Harane, a second-year B.Tech Computer Science student at MITADT University. With a passion for technology and innovation, I am excited to contribute my skills and creativity to this project.🌟 My journey in computer science has been both challenging and rewarding, and I look forward to exploring new horizons and making impactful contributions in the tech world.</p>
                     </div>
                     <div className='icon'>
                     <SocialIcon target='blank' network='github' url='https://github.com/CHINMAYEEHARANE58'/>
@@ -45,7 +44,7 @@ function Creators() {
                     <img className='pranjalPhoto' width={300} src={pranjal} alt="" />
                     <div className="text">
                     <h3 className='name'>Pranjal Gosavi</h3>
-                    <p className='selfIntro'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit perspiciatis illo, saepe eaque molestiae soluta voluptates optio numquam. Recusandae sunt iure dicta! Doloribus molestias maxime, amet quae maiores modi pariatur?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim doloribus, consequatur impedit accusamus necessitatibus veniam culpa! Beatae expedita unde nostrum pariatur, sunt ea cumque ipsa eligendi est cum voluptates obcaecati.</p>
+                    <p className='selfIntro'>Hello!👋 I'm Pranjal Gosavi, a second-year B.Tech Computer Science student at MITADT University. With a passion for technology and innovation, I am excited to contribute my skills and creativity to this project.🌟 My journey in computer science has been both challenging and rewarding, and I look forward to exploring new horizons and making impactful contributions in the tech world.</p>
 
                 </div>
                 <div className='icon'>

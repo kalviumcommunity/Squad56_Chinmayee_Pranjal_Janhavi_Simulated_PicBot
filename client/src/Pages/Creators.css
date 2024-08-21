@@ -4,8 +4,7 @@
     font-size: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family: cursive;
-}
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
 .janhaviPhoto{
     border-radius: 50%;
     
@@ -20,7 +19,7 @@
 
 }
 .container{
-    font-family: cursive;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: space-around;
     align-items: center;
