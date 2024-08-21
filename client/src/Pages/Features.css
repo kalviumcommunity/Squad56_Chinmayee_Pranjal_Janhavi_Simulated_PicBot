@@ -1,0 +1,87 @@
+.features-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.features-txt{
+  font-size: 3rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  width: 80vw;
+  height: 60vh;
+  margin-top: 2vh;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.feature-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.feature-image img {
+  width: 34vw;
+  height: 50vh;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px rgb(138, 137, 137);
+}
+
+.feature-info {
+  max-width: 450px;
+}
+
+.feature-info h2 {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-info p {
+  font-size: 1.3rem;
+  color: #555;
+}
+
+.generate {
+  border: 1px solid rgb(114, 114, 114);
+  margin-top: 2vw;
+  width: 25vw;
+  height: 2vh;
+  padding: 1.15vw;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.generate input {
+  width: 20vw;
+  height: 4.5vh;
+  border: none;
+}
+
+.generateBtn {
+  font-family: 'Inter', sans-serif;
+  width: 8vw;
+  padding: 0.55vw;
+  font-size: 13px;
+  background-color: #AE1FB2;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+}
+
+.reveal {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
