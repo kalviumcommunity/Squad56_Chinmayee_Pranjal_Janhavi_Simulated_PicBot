@@ -1,63 +1,70 @@
-
-.heading{
+.heading {
     text-align: center;
     font-size: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
     font-family: cursive;
 }
-.janhaviPhoto{
+
+.janhaviPhoto,
+.chinmayeePhoto,
+.pranjalPhoto {
     border-radius: 50%;
-    
+    margin-left: 80px;
+    margin-top: 20px;
 }
 
-.chinmayeePhoto {
-    border-radius: 50%;
-    
-}
-.pranjalPhoto{
-    border-radius: 50%;
-
-}
-.container{
+.container {
     font-family: cursive;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.janhaviPhoto, .chinmayeePhoto, .pranjalPhoto{
-    margin-left: 80px;
-    margin-top: 20px;
-}
-
-.firstbox, .secondbox, .thirdbox{
+.firstbox,
+.secondbox,
+.thirdbox {
     width: 450px;
-    /* border: 1px solid gray; */
-    
 }
 
-.icon{
+.icon {
     display: flex;
     justify-content: space-around;
     width: 200px;
     margin-left: 120px;
     margin-top: 30px;
     margin-bottom: 20px;
-    
 }
 
-.text{
-margin-top: 50px;
+.text {
+    margin-top: 50px;
 }
-.name{
-    
 
+.name {
     text-align: center;
 }
-.selfIntro{
+
+.selfIntro {
     margin-top: 20px;
     text-align: center;
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+.animate {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 1;
+}
+
+.firstbox, .secondbox, .thirdbox {
+    opacity: 0;
+}

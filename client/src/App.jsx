@@ -1,28 +1,23 @@
 import React from 'react'
 import './App.css'
-// import './Pages/Login.jsx'
-// import Login from './Pages/Login.jsx'
-// import Navbar from './Components/Navbar.jsx'
-// import Home from './Pages/Home.jsx'
-// import Signup from './Pages/Signup.jsx'
+import Login from './Pages/Login.jsx'
+import Features from './Pages/Features.jsx'
+import Generator from './Pages/Generator.jsx'
+import Home from './Pages/Home.jsx'
 import Creators from './Pages/Creators.jsx'
-// import Generator from './Pages/Generator.jsx'
-// import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Signup from './Pages/Signup.jsx'
+
+
 function App() {
 
   return (
-    <>
-        <Creators/>
-      {/* <Login/> */}
-        {/* <Signup/> */}
-        {/* <Generator/> */}
-      {/* <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/signup' element={<Signup/>}></Route>
-        // <Route path='/login' element={<Login/>}></Route>
-      </Routes>
-      </BrowserRouter> */}
+    <>  
+      <Login/>
+      <Signup/>
+      <Home/>
+      <Generator/>
+      <Features/>
+      <Creators/>
     </>
   )
 }
