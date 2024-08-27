@@ -1,3 +1,5 @@
+
+
 .heading {
     text-align: center;
     font-size: 30px;
@@ -36,9 +38,7 @@
     margin-bottom: 20px;
 }
 
-.text {
-    margin-top: 50px;
-}
+
 
 .name {
     text-align: center;
@@ -47,24 +47,5 @@
 .selfIntro {
     margin-top: 20px;
     text-align: center;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate {
-    animation: fadeInUp 1s ease forwards;
-    opacity: 1;
-}
-
-.firstbox, .secondbox, .thirdbox {
-    opacity: 0;
+    
 }

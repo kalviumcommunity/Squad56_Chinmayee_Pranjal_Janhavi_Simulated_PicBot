@@ -47,7 +47,7 @@
     flex-direction: column;
 }
 
-.login-text{
+.logintext{
     font-size: 36px;
     text-align: center;
     margin: 7vh  0 5vh 0;
@@ -108,7 +108,7 @@
     color: #ffffff;
 }
 
-.signup-text{
+.signuptext{
     display: flex;
     align-items: center;
     justify-content: space-between;

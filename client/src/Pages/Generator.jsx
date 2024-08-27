@@ -17,66 +17,66 @@ function Generator() {
     <>
     <nav className="nav">
       <div className="logo">
-        <img src={Logo} alt="PICBOT" />
+        <img src={Logo} alt="PICBOT"/>
         
       </div>
       <div className="search-bar">
-        <input type="text" placeholder="Baby elephant on a ball" />
+        <input type="text" placeholder="Baby elephant on a ball"/>
         <button className="search-button">search</button>
       </div>
 
       <div className="heart-icon">
-        <span><img src={Heart} alt="" /></span>
+        <span><img src={Heart} alt=""/></span>
       </div>
     </nav>
     
     <div className='display'>
   <div className="image-container">
-    <img width={400} src={ele1} alt="" />
+    <img width={400} src={ele1} alt=""/>
     <div className="overlay">
-      <RiDownload2Fill className="icon" /> 
+      <RiDownload2Fill className="icon"/> 
       <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon" />
+      <IoIosShareAlt className="icon"/>
     </div>
   </div>
   <div className="image-container">
-    <img width={400} src={ele2} alt="" />
+    <img width={400} src={ele2} alt=""/>
     <div className="overlay">
-      <RiDownload2Fill className="icon" /> 
+      <RiDownload2Fill className="icon"/> 
       <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon" />
+      <IoIosShareAlt className="icon"/>
     </div>
   </div>
   <div className="image-container">
-    <img width={400} src={ele3} alt="" />
+    <img width={400} src={ele3} alt=""/>
     <div className="overlay">
-      <RiDownload2Fill className="icon" /> 
+      <RiDownload2Fill className="icon"/> 
       <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon" />
+      <IoIosShareAlt className="icon"/>
     </div>
   </div>
   <div className="image-container">
-    <img width={400} src={ele4} alt="" />
+    <img width={400} src={ele4} alt=""/>
     <div className="overlay">
-      <RiDownload2Fill className="icon" /> 
-      <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon" />
+      <RiDownload2Fill className="icon"/> 
+      <CiHeart className="icon"/> 
+      <IoIosShareAlt className="icon"/>
     </div>
   </div>
   <div className="image-container">
-    <img width={400} src={ele5} alt="" />
+    <img width={400} src={ele5} alt=""/>
     <div className="overlay">
-      <RiDownload2Fill className="icon" /> 
-      <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon" />
+      <RiDownload2Fill className="icon"/> 
+      <CiHeart className="icon"/> 
+      <IoIosShareAlt className="icon"/>
     </div>
   </div>
   <div className="image-container">
-    <img width={400} src={ele6} alt="" />
+    <img width={400} src={ele6} alt=""/>
     <div className="overlay">
-      <RiDownload2Fill className="icon" /> 
+      <RiDownload2Fill className="icon"/> 
       <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon" />
+      <IoIosShareAlt className="icon"/>
     </div>
   </div>
 </div>
