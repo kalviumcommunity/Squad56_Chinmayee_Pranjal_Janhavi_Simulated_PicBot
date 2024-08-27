@@ -59,3 +59,5 @@ Welcome to **PicBot**, the ultimate **AI Image Generator** platform! 🚀 This p
 6. **Share images** within the community and engage with other users.
 
 ---
+**Backend deployed link:**
+https://squad56-chinmayee-pranjal-janhavi.onrender.com

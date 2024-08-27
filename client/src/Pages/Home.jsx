@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Navbar from "../Components/Navbar";
 import Homepic from "../assets/Home.png";
 import './Home.css';
+import { NavLink } from 'react-router-dom';
 
 function Home() {
   const textRef = useRef(null);
@@ -35,7 +36,7 @@ function Home() {
           <p>Dive into a world where your creative ideas come to life with just a few clicks. Our AI-powered image generator is designed to transform your thoughts into stunning visuals, effortlessly and instantly.</p>
           <div className="generate">
             <input type="text" />
-            <button className='generateBtn'> ✨Generate</button>
+            <NavLink to={"/aigenerator"}><button className='generateBtn'> ✨Generate</button></NavLink>
           </div>
         </div>
         <img src={Homepic} alt="Picbot Home" ref={imageRef} />
