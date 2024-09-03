@@ -37,12 +37,11 @@ const Login = () => {
 
     axios.post("http://localhost:3000/login", loginData)
       .then((res) => {
-        console.log(res.data.name)
-        console.log(res.data.token)
+      
         if (res.data.token) {
           localStorage.setItem("token", res.data.token)
           localStorage.setItem("Username", res.data.name)
-          localStorage.setItem("id", res.data.id)
+          // localStorage.setItem("id", res.data.id)
 
           alert("Login Successful!")
           setLoggedIn(true)

@@ -1,88 +1,76 @@
-import React from 'react'
-import "./Generator.css"
-import Logo from '../assets/logo.png'
-import Heart from '../assets/saved.png'
-import ele1 from "../assets/elephant1.jpeg"
-import ele2 from "../assets/elephant2.jpeg"
-import ele3 from "../assets/elephant3.jpeg"
-import ele4 from "../assets/elephant4.jpeg"
-import ele5 from "../assets/elephant5.jpeg"
-import ele6 from "../assets/elephant6.jpeg"
+import React, { useState } from 'react';
+import "./Generator.css";
+import Logo from '../assets/logo.png';
+import Heart from '../assets/saved.png';
 import { RiDownload2Fill } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
 import { IoIosShareAlt } from "react-icons/io";
 
 function Generator() {
+  const [prompt, setPrompt] = useState('');
+  const [generatedImages, setGeneratedImages] = useState([]);  // Changed to an array of images
+  const [loading, setLoading] = useState(false);  // Loading state
+
+  const handleSearch = () => {
+    setLoading(true); // Set loading to true when the search begins
+    
+    const form = new FormData();
+    form.append('prompt', prompt);
+
+    fetch('https://clipdrop-api.co/text-to-image/v1', {
+      method: 'POST',
+      headers: {
+        'x-api-key': '9ae2cc39335864e2a81298dc9bfa6ec23be6a022e559e7f37210344897eb5c021ec1f6eb96af826e087e7de7e7aea471',
+      },
+      body: form,
+    })
+      .then(response => response.blob())
+      .then(blob => {
+        const imageUrl = URL.createObjectURL(blob);
+        setGeneratedImages(prevImages => [...prevImages, imageUrl]);  // Append new image
+        setLoading(false); // Stop loading once the image is fetched
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setLoading(false); // Stop loading on error
+      });
+  };
+
   return (
     <>
-    <nav className="nav">
-      <div className="logo">
-        <img src={Logo} alt="PICBOT"/>
-        
-      </div>
-      <div className="search-bar">
-        <input type="text" placeholder="Baby elephant on a ball"/>
-        <button className="search-button">search</button>
-      </div>
+      <nav className="nav">
+        <div className="logo">
+          <img src={Logo} alt="PICBOT" />
+        </div>
+        <div className="search-bar">
+          <input 
+            type="text" 
+            placeholder="Enter your prompt" 
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+          />
+          <button className="search-button" onClick={handleSearch}>Search</button>
+        </div>
+        <div className="heart-icon">
+          <span><img src={Heart} alt=""/></span>
+        </div>
+      </nav>
 
-      <div className="heart-icon">
-        <span><img src={Heart} alt=""/></span>
+      <div className='display'>
+        {loading && <p>Loading...</p>}  {/* Optional: Show a loading message */}
+        {generatedImages.map((image, index) => (
+          <div className="image-container" key={index}>
+            <img width={400} src={image} alt={`Generated ${index + 1}`}/>
+            <div className="overlay">
+              <RiDownload2Fill className="icon"/> 
+              <CiHeart className="icon"/> 
+              <IoIosShareAlt className="icon"/>
+            </div>
+          </div>
+        ))}
       </div>
-    </nav>
-    
-    <div className='display'>
-  <div className="image-container">
-    <img width={400} src={ele1} alt=""/>
-    <div className="overlay">
-      <RiDownload2Fill className="icon"/> 
-      <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon"/>
-    </div>
-  </div>
-  <div className="image-container">
-    <img width={400} src={ele2} alt=""/>
-    <div className="overlay">
-      <RiDownload2Fill className="icon"/> 
-      <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon"/>
-    </div>
-  </div>
-  <div className="image-container">
-    <img width={400} src={ele3} alt=""/>
-    <div className="overlay">
-      <RiDownload2Fill className="icon"/> 
-      <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon"/>
-    </div>
-  </div>
-  <div className="image-container">
-    <img width={400} src={ele4} alt=""/>
-    <div className="overlay">
-      <RiDownload2Fill className="icon"/> 
-      <CiHeart className="icon"/> 
-      <IoIosShareAlt className="icon"/>
-    </div>
-  </div>
-  <div className="image-container">
-    <img width={400} src={ele5} alt=""/>
-    <div className="overlay">
-      <RiDownload2Fill className="icon"/> 
-      <CiHeart className="icon"/> 
-      <IoIosShareAlt className="icon"/>
-    </div>
-  </div>
-  <div className="image-container">
-    <img width={400} src={ele6} alt=""/>
-    <div className="overlay">
-      <RiDownload2Fill className="icon"/> 
-      <CiHeart className="icon" /> 
-      <IoIosShareAlt className="icon"/>
-    </div>
-  </div>
-</div>
-
     </>
-  )
+  );
 }
 
-export default Generator
+export default Generator;
