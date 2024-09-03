@@ -35,7 +35,7 @@ const Login = () => {
       password: password
     }
 
-    axios.post("http://localhost:3000/login", loginData)
+    axios.post("https://squad56-chinmayee-pranjal-janhavi.onrender.com/login", loginData)
       .then((res) => {
       
         if (res.data.token) {
