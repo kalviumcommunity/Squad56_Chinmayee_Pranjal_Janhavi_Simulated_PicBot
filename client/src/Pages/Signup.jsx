@@ -35,7 +35,7 @@ const Signup = () => {
         password: password
       };
 
-      axios.post("http://localhost:3000/signup", userData)
+      axios.post("https://squad56-chinmayee-pranjal-janhavi.onrender.com/signup", userData)
         .then((res) => {
           alert(res.data);
           navigate("/");

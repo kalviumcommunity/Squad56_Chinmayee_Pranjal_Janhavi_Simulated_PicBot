@@ -54,7 +54,6 @@ app.post("/signup", async (req, res) => {
 
 app.post("/login" ,async(req, res)=>{
   const data = req.body;
-  console.log(data)
   try{
     const user = await usermodel.findOne({firstname : data.name})
     console.log(user)
