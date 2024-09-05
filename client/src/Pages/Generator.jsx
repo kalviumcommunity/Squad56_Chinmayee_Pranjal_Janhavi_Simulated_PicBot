@@ -9,15 +9,12 @@ import { IoIosShareAlt } from "react-icons/io";
 function Generator() {
 
   const [prompt, setPrompt] = useState('');
-  // deployedlinkAdded
-
   const [generatedImages, setGeneratedImages] = useState([]);  
   const [loading, setLoading] = useState(false);  
 
   const handleSearch = () => {
     setLoading(true);
 
-    
     const form = new FormData();
     form.append('prompt', prompt);
 
@@ -31,22 +28,22 @@ function Generator() {
       .then(response => response.blob())
       .then(blob => {
         const imageUrl = URL.createObjectURL(blob);
-
         setGeneratedImages(prevImages => [...prevImages, imageUrl]); 
         setLoading(false);
       })
       .catch(error => {
         console.error('Error:', error);
         setLoading(false);
-
-        setGeneratedImages(prevImages => [imageUrl, ...prevImages]);
-        setLoading(false); 
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setLoading(false); 
-
       });
+  };
+
+  const downloadImage = (imageUrl) => {
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.setAttribute('download', 'generated-image.png'); // Specify the download file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -73,10 +70,9 @@ function Generator() {
         {loading && <p>Loading...</p>}  
         {generatedImages.map((image, index) => (
           <div className="image-container" key={index}>
-            <img width={400} src={image} alt={`${index + 1}`}/>
-
+            <img width={400} src={image} alt={`Generated ${index + 1}`}/>
             <div className="overlay">
-              <RiDownload2Fill className="icon"/> 
+              <RiDownload2Fill className="icon" onClick={() => downloadImage(image)} /> 
               <CiHeart className="icon"/> 
               <IoIosShareAlt className="icon"/>
             </div>
@@ -88,4 +84,3 @@ function Generator() {
 }
 
 export default Generator;
-
