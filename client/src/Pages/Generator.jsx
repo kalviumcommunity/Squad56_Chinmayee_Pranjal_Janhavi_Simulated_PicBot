@@ -7,13 +7,9 @@ import { CiHeart } from "react-icons/ci";
 import { IoIosShareAlt } from "react-icons/io";
 
 function Generator() {
-  const [prompt, setPrompt] = useState('');
- deployedlinkAdded
-  const [generatedImages, setGeneratedImages] = useState([]);  // Changed to an array of images
-  const [loading, setLoading] = useState(false);  // Loading state
 
-  const handleSearch = () => {
-    setLoading(true); // Set loading to true when the search begins
+  const [prompt, setPrompt] = useState('');
+  // deployedlinkAdded
 
   const [generatedImages, setGeneratedImages] = useState([]);  
   const [loading, setLoading] = useState(false);  
@@ -36,12 +32,12 @@ function Generator() {
       .then(blob => {
         const imageUrl = URL.createObjectURL(blob);
 
-        setGeneratedImages(prevImages => [...prevImages, imageUrl]);  // Append new image
-        setLoading(false); // Stop loading once the image is fetched
+        setGeneratedImages(prevImages => [...prevImages, imageUrl]); 
+        setLoading(false);
       })
       .catch(error => {
         console.error('Error:', error);
-        setLoading(false); // Stop loading on error
+        setLoading(false);
 
         setGeneratedImages(prevImages => [imageUrl, ...prevImages]);
         setLoading(false); 
@@ -74,12 +70,6 @@ function Generator() {
       </nav>
 
       <div className='display'>
-
-        {loading && <p>Loading...</p>}  {/* Optional: Show a loading message */}
-        {generatedImages.map((image, index) => (
-          <div className="image-container" key={index}>
-            <img width={400} src={image} alt={`Generated ${index + 1}`}/>
-
         {loading && <p>Loading...</p>}  
         {generatedImages.map((image, index) => (
           <div className="image-container" key={index}>
@@ -96,8 +86,6 @@ function Generator() {
     </>
   );
 }
-
-export default Generator;
 
 export default Generator;
 
