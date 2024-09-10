@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import "./Generator.css";
 import Logo from '../assets/logo.png';
 import Heart from '../assets/saved.png';
-import { RiDownload2Fill } from "react-icons/ri";
-import { CiHeart } from "react-icons/ci";
-// import { FaShareFromSquare } from "react-icons/fa6";
-// import { IoIosShareAlt } from "react-icons/io";
+import { BsShareFill } from "react-icons/bs";
+// import { CiHeart } from "react-icons/ci";
+// import { RiDownload2Fill } from "react-icons/ri";
 
 function Generator() {
 
@@ -75,6 +74,37 @@ function Generator() {
     document.body.removeChild(link);
   };
 
+  const handleShare = (imageUrl) => {
+    fetch(imageUrl)
+      .then(res => res.blob())
+      .then(blob => {
+        const reader = new FileReader();
+        reader.onloadend = function () {
+          const base64data = reader.result;
+          if (navigator.share) {
+            navigator.share({
+              title: 'Check out this image!',
+              text: 'I generated this image using PICBOT!',
+              files: [
+                new File([blob], `GeneratedImage_${new Date().getTime()}.png`, { type: blob.type })
+              ]
+            }).then(() => {
+              console.log('Image shared successfully!');
+            }).catch((error) => {
+              console.error('Error sharing:', error);
+            });
+          } else {
+            alert('Web Share API is not supported in your browser.');
+          }
+        }
+        reader.readAsDataURL(blob);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  };
+  
+
   return (
     <>
       <nav className="nav">
@@ -102,12 +132,15 @@ function Generator() {
             <img width={400} src={image} alt={`${index + 1}`}/>
 
             <div className="overlay">
-              {/* <FaShareFromSquare  className='icon'/> */}
-              <RiDownload2Fill 
+              {/* <RiDownload2Fill 
                 className="icon" 
                 onClick={() => handleDownload(image)}
+              /> */}
+              <BsShareFill 
+                className="icon" 
+                onClick={() => handleShare(image)}
               />
-              <CiHeart className="icon"/> 
+              {/* <CiHeart className="icon"/>  */}
             </div>
           </div>
         ))}
