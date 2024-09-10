@@ -4,18 +4,26 @@ import Logo from '../assets/logo.png';
 import Heart from '../assets/saved.png';
 import { RiDownload2Fill } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
-import { IoIosShareAlt } from "react-icons/io";
+// import { FaShareFromSquare } from "react-icons/fa6";
+// import { IoIosShareAlt } from "react-icons/io";
 
 function Generator() {
 
   const [prompt, setPrompt] = useState('');
-  // deployedlinkAdded
+
+  const [generatedImages, setGeneratedImages] = useState([]);  
+  const [loading, setLoading] = useState(false); 
+
+  const handleSearch = () => {
+    setLoading(true); 
+
 
   const [generatedImages, setGeneratedImages] = useState([]);  
   const [loading, setLoading] = useState(false);  
 
   const handleSearch = () => {
     setLoading(true);
+
 
     
     const form = new FormData();
@@ -32,6 +40,14 @@ function Generator() {
       .then(blob => {
         const imageUrl = URL.createObjectURL(blob);
 
+        setGeneratedImages(prevImages => [...prevImages, imageUrl]);  
+        setLoading(false); 
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setLoading(false); 
+
+
         setGeneratedImages(prevImages => [...prevImages, imageUrl]); 
         setLoading(false);
       })
@@ -46,7 +62,17 @@ function Generator() {
         console.error('Error:', error);
         setLoading(false); 
 
+
       });
+  };
+
+  const handleDownload = (imageUrl) => {
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.download = `GeneratedImage_${new Date().getTime()}.png`; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -76,9 +102,12 @@ function Generator() {
             <img width={400} src={image} alt={`${index + 1}`}/>
 
             <div className="overlay">
-              <RiDownload2Fill className="icon"/> 
+              {/* <FaShareFromSquare  className='icon'/> */}
+              <RiDownload2Fill 
+                className="icon" 
+                onClick={() => handleDownload(image)}
+              />
               <CiHeart className="icon"/> 
-              <IoIosShareAlt className="icon"/>
             </div>
           </div>
         ))}
