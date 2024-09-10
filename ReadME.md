@@ -1,6 +1,6 @@
 # **🎨 PICBOT - AI Image Generator**
 
-### **Frontend Deployed Link**
+## [Frontend deployed link](https://picbot.netlify.app)
 
 ---
 

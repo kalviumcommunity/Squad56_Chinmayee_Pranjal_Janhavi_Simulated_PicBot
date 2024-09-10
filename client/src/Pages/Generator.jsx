@@ -8,12 +8,23 @@ import { CiHeart } from "react-icons/ci";
 // import { IoIosShareAlt } from "react-icons/io";
 
 function Generator() {
+
   const [prompt, setPrompt] = useState('');
+
   const [generatedImages, setGeneratedImages] = useState([]);  
   const [loading, setLoading] = useState(false); 
 
   const handleSearch = () => {
     setLoading(true); 
+
+
+  const [generatedImages, setGeneratedImages] = useState([]);  
+  const [loading, setLoading] = useState(false);  
+
+  const handleSearch = () => {
+    setLoading(true);
+
+
     
     const form = new FormData();
     form.append('prompt', prompt);
@@ -28,12 +39,30 @@ function Generator() {
       .then(response => response.blob())
       .then(blob => {
         const imageUrl = URL.createObjectURL(blob);
+
         setGeneratedImages(prevImages => [...prevImages, imageUrl]);  
         setLoading(false); 
       })
       .catch(error => {
         console.error('Error:', error);
         setLoading(false); 
+
+
+        setGeneratedImages(prevImages => [...prevImages, imageUrl]); 
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setLoading(false);
+
+        setGeneratedImages(prevImages => [imageUrl, ...prevImages]);
+        setLoading(false); 
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setLoading(false); 
+
+
       });
   };
 
@@ -70,7 +99,8 @@ function Generator() {
         {loading && <p>Loading...</p>}  
         {generatedImages.map((image, index) => (
           <div className="image-container" key={index}>
-            <img width={400} src={image} alt={`Generated ${index + 1}`}/>
+            <img width={400} src={image} alt={`${index + 1}`}/>
+
             <div className="overlay">
               {/* <FaShareFromSquare  className='icon'/> */}
               <RiDownload2Fill 
@@ -87,3 +117,4 @@ function Generator() {
 }
 
 export default Generator;
+
