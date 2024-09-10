@@ -4,15 +4,16 @@ import Logo from '../assets/logo.png';
 import Heart from '../assets/saved.png';
 import { RiDownload2Fill } from "react-icons/ri";
 import { CiHeart } from "react-icons/ci";
-import { IoIosShareAlt } from "react-icons/io";
+// import { FaShareFromSquare } from "react-icons/fa6";
+// import { IoIosShareAlt } from "react-icons/io";
 
 function Generator() {
   const [prompt, setPrompt] = useState('');
-  const [generatedImages, setGeneratedImages] = useState([]);  // Changed to an array of images
-  const [loading, setLoading] = useState(false);  // Loading state
+  const [generatedImages, setGeneratedImages] = useState([]);  
+  const [loading, setLoading] = useState(false); 
 
   const handleSearch = () => {
-    setLoading(true); // Set loading to true when the search begins
+    setLoading(true); 
     
     const form = new FormData();
     form.append('prompt', prompt);
@@ -27,13 +28,22 @@ function Generator() {
       .then(response => response.blob())
       .then(blob => {
         const imageUrl = URL.createObjectURL(blob);
-        setGeneratedImages(prevImages => [...prevImages, imageUrl]);  // Append new image
-        setLoading(false); // Stop loading once the image is fetched
+        setGeneratedImages(prevImages => [...prevImages, imageUrl]);  
+        setLoading(false); 
       })
       .catch(error => {
         console.error('Error:', error);
-        setLoading(false); // Stop loading on error
+        setLoading(false); 
       });
+  };
+
+  const handleDownload = (imageUrl) => {
+    const link = document.createElement('a');
+    link.href = imageUrl;
+    link.download = `GeneratedImage_${new Date().getTime()}.png`; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -57,14 +67,17 @@ function Generator() {
       </nav>
 
       <div className='display'>
-        {loading && <p>Loading...</p>}  {/* Optional: Show a loading message */}
+        {loading && <p>Loading...</p>}  
         {generatedImages.map((image, index) => (
           <div className="image-container" key={index}>
             <img width={400} src={image} alt={`Generated ${index + 1}`}/>
             <div className="overlay">
-              <RiDownload2Fill className="icon"/> 
+              {/* <FaShareFromSquare  className='icon'/> */}
+              <RiDownload2Fill 
+                className="icon" 
+                onClick={() => handleDownload(image)}
+              />
               <CiHeart className="icon"/> 
-              <IoIosShareAlt className="icon"/>
             </div>
           </div>
         ))}

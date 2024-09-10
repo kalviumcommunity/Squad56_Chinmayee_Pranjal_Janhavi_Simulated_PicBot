@@ -63,7 +63,7 @@
   .image-container {
     position: relative;
     width: 400px;
-    height: 300px; /* Adjust the height if needed */
+    height: 300px; 
     overflow: hidden;
   }
   
@@ -75,7 +75,7 @@
   }
   
   .image-container:hover img {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.05); 
   }
   
   .overlay {
@@ -104,6 +104,6 @@
   }
   
   .icon:hover {
-    color: #ff0080; /* Change color on hover */
+    color: #ff0080; 
   }
   
