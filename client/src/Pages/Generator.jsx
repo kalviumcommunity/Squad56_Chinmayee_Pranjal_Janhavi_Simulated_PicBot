@@ -7,24 +7,13 @@ import { BsShareFill } from "react-icons/bs";
 // import { RiDownload2Fill } from "react-icons/ri";
 
 function Generator() {
-
   const [prompt, setPrompt] = useState('');
-
   const [generatedImages, setGeneratedImages] = useState([]);  
   const [loading, setLoading] = useState(false); 
 
   const handleSearch = () => {
-    setLoading(true); 
-
-
-  const [generatedImages, setGeneratedImages] = useState([]);  
-  const [loading, setLoading] = useState(false);  
-
-  const handleSearch = () => {
     setLoading(true);
 
-
-    
     const form = new FormData();
     form.append('prompt', prompt);
 
@@ -38,30 +27,12 @@ function Generator() {
       .then(response => response.blob())
       .then(blob => {
         const imageUrl = URL.createObjectURL(blob);
-
         setGeneratedImages(prevImages => [...prevImages, imageUrl]);  
         setLoading(false); 
       })
       .catch(error => {
         console.error('Error:', error);
         setLoading(false); 
-
-
-        setGeneratedImages(prevImages => [...prevImages, imageUrl]); 
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setLoading(false);
-
-        setGeneratedImages(prevImages => [imageUrl, ...prevImages]);
-        setLoading(false); 
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setLoading(false); 
-
-
       });
   };
 
@@ -103,7 +74,6 @@ function Generator() {
         console.error('Error:', error);
       });
   };
-  
 
   return (
     <>
@@ -121,7 +91,7 @@ function Generator() {
           <button className="search-button" onClick={handleSearch}>Search</button>
         </div>
         <div className="heart-icon">
-          <span><img src={Heart} alt=""/></span>
+          <span><img src={Heart} alt="Saved"/></span>
         </div>
       </nav>
 
@@ -129,8 +99,7 @@ function Generator() {
         {loading && <p>Loading...</p>}  
         {generatedImages.map((image, index) => (
           <div className="image-container" key={index}>
-            <img width={400} src={image} alt={`${index + 1}`}/>
-
+            <img width={400} src={image} alt={`Generated ${index + 1}`} />
             <div className="overlay">
               {/* <RiDownload2Fill 
                 className="icon" 
@@ -150,4 +119,3 @@ function Generator() {
 }
 
 export default Generator;
-
