@@ -15,7 +15,7 @@ function Navbar() {
             <NavLink to={"/creators"}><p>About us</p></NavLink>
             <NavLink to={"feedback"}><p>Feedback</p></NavLink>
            <NavLink to={"/login"}><p className='createAccount'>Login</p></NavLink>
-            <img className="likes" src = {Heart} alt="like" />
+            <NavLink to={"/liked"}><img className="likes" src = {Heart} alt="like" /></NavLink>
         </div>
     </div>
     </>
