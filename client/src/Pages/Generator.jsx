@@ -6,16 +6,14 @@ import { BsShareFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { RiDownload2Fill } from "react-icons/ri";
 
-// Static image URL
-const staticImageUrl = "https://static.vecteezy.com/system/resources/thumbnails/024/179/673/small_2x/pure-blue-sky-white-clouds-the-strong-light-through-the-clouds-shines-straight-on-the-endless-sea-of-white-tulip-flowers-ai-generative-photo.jpg";
+
+// const staticImageUrl = "https://static.vecteezy.com/system/resources/thumbnails/024/179/673/small_2x/pure-blue-sky-white-clouds-the-strong-light-through-the-clouds-shines-straight-on-the-endless-sea-of-white-tulip-flowers-ai-generative-photo.jpg";
 
 function Generator() {
   const [prompt, setPrompt] = useState('');
-  const [generatedImages, setGeneratedImages] = useState([staticImageUrl]);  // Use static image
+  const [generatedImages, setGeneratedImages] = useState([]);  
   const [loading, setLoading] = useState(false); 
 
-  // Commenting out API call logic
-  /*
   const handleSearch = () => {
     setLoading(true); 
     
@@ -40,7 +38,7 @@ function Generator() {
         setLoading(false); 
       });
   };
-  */
+  
 
   const handleDownload = (imageUrl) => {
     const link = document.createElement('a');
@@ -94,7 +92,7 @@ function Generator() {
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
           />
-          {/* <button className="search-button" onClick={handleSearch}>Search</button> */}
+          <button className="search-button" onClick={handleSearch}>Search</button>
         </div>
         <div className="heart-icon">
           <span><img src={Heart} alt=""/></span>
