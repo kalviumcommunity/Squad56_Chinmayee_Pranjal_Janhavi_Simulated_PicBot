@@ -20,7 +20,7 @@ function Generator() {
     fetch('https://clipdrop-api.co/text-to-image/v1', {
       method: 'POST',
       headers: {
-        'x-api-key': '9ae2cc39335864e2a81298dc9bfa6ec23be6a022e559e7f37210344897eb5c021ec1f6eb96af826e087e7de7e7aea471',
+        'x-api-key': 'debc763737bb4bda58b1708f8cbba5f976890a8963a22a6004d715911b8182432fc2283dc749813e6cc6e67641e7cfd3',
       },
       body: form,
     })
@@ -102,15 +102,15 @@ function Generator() {
           <div className="image-container" key={index}>
             <img width={400} src={image} alt={`Generated ${index + 1}`}/>
             <div className="overlay">
-              {/* <RiDownload2Fill 
+              {/* { <RiDownload2Fill 
                 className="icon" 
                 onClick={() => handleDownload(image)}
-              /> */}
+              /> } */}
               <BsShareFill 
                 className="icon" 
                 onClick={() => handleShare(image)}
               />
-              {/* <CiHeart className="icon"/>  */}
+              {/* { <CiHeart className="icon"/> } */}
             </div>
           </div>
         ))}
