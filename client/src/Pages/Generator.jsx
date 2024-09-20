@@ -3,14 +3,19 @@ import "./Generator.css";
 import Logo from '../assets/logo.png';
 import Heart from '../assets/saved.png';
 import { BsShareFill } from "react-icons/bs";
-// import { CiHeart } from "react-icons/ci";
-// import { RiDownload2Fill } from "react-icons/ri";
+import { CiHeart } from "react-icons/ci";
+import { RiDownload2Fill } from "react-icons/ri";
+
+// Static image URL
+const staticImageUrl = "https://static.vecteezy.com/system/resources/thumbnails/024/179/673/small_2x/pure-blue-sky-white-clouds-the-strong-light-through-the-clouds-shines-straight-on-the-endless-sea-of-white-tulip-flowers-ai-generative-photo.jpg";
 
 function Generator() {
   const [prompt, setPrompt] = useState('');
-  const [generatedImages, setGeneratedImages] = useState([]);  
+  const [generatedImages, setGeneratedImages] = useState([staticImageUrl]);  // Use static image
   const [loading, setLoading] = useState(false); 
 
+  // Commenting out API call logic
+  /*
   const handleSearch = () => {
     setLoading(true);
 
@@ -35,6 +40,7 @@ function Generator() {
         setLoading(false); 
       });
   };
+  */
 
   const handleDownload = (imageUrl) => {
     const link = document.createElement('a');
@@ -88,7 +94,7 @@ function Generator() {
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
           />
-          <button className="search-button" onClick={handleSearch}>Search</button>
+          {/* <button className="search-button" onClick={handleSearch}>Search</button> */}
         </div>
         <div className="heart-icon">
           <span><img src={Heart} alt="Saved"/></span>
@@ -101,15 +107,15 @@ function Generator() {
           <div className="image-container" key={index}>
             <img width={400} src={image} alt={`Generated ${index + 1}`} />
             <div className="overlay">
-              {/* { <RiDownload2Fill 
-                className="icon" 
+              { <RiDownload2Fill 
+                className="iconss" 
                 onClick={() => handleDownload(image)}
-              /> } */}
+              /> }
               <BsShareFill 
-                className="icon" 
-                onClick={() => handleShare(image)}
+                 className='iconss'
+                  onClick={() => handleShare(image)} 
               />
-              {/* { <CiHeart className="icon"/> } */}
+              { <CiHeart className="iconss"/> }
             </div>
           </div>
         ))}

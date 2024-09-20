@@ -94,21 +94,26 @@
     transition: opacity 0.3s ease-in-out;
     display: flex;
     align-items: flex-end;
-    padding: 10px;
+    padding: 5px;
   }
   
   .image-container:hover .overlay {
     opacity: 1;
   }
-  
-  .icon {
-    color: white;
-    margin-right: 10px;
-    font-size: 24px;
-    cursor: pointer;
+  .overlay{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* width: 1000px; */
+    size: 400px;
+
+  }
+  .iconss{
+     font-size: 25px;
+     color: white;
   }
   
-  .icon:hover {
+  .iconss:hover {
     color: #ff0080; 
   }
   
