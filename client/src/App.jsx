@@ -7,6 +7,7 @@ import Home from './Pages/Home.jsx'
 import Creators from './Pages/Creators.jsx'
 import Signup from './Pages/Signup.jsx'
 import {BrowserRouter, Route, Routes} from "react-router-dom"
+import LikeImages from './Pages/LikeImages.jsx'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path='/aigenerator' element={<Generator/>} ></Route>
       <Route path='/features' element={<Features/>} ></Route>
       <Route path='/creators' element={<Creators/>} ></Route>
+      <Route path='/liked' element={<LikeImages/>}></Route>
     </Routes>
     </BrowserRouter>  
       
