@@ -8,6 +8,7 @@ import Creators from './Pages/Creators.jsx'
 import Signup from './Pages/Signup.jsx'
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import LikeImages from './Pages/LikeImages.jsx'
+import FeedbackForm from './Pages/FeedbackForm.jsx'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path='/features' element={<Features/>} ></Route>
       <Route path='/creators' element={<Creators/>} ></Route>
       <Route path='/liked' element={<LikeImages/>}></Route>
+      <Route path='/feedback' element={<FeedbackForm/>}></Route>
     </Routes>
     </BrowserRouter>  
       
