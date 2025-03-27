@@ -8,6 +8,7 @@ import img5 from '../assets/5.jpeg';
 import img6 from '../assets/6.png';
 import img7 from '../assets/7.png';
 import img8 from '../assets/8.png';
+import Navbar from '../Components/Navbar';
 
 const featuresData = [
   {
@@ -84,6 +85,8 @@ const Features = () => {
   }, []);
 
   return (
+    <>
+    <Navbar />
     <div className="features-container">
       <h2 className="features-txt reveal">Features</h2>
       {featuresData.map((feature, index) => (
@@ -106,6 +109,7 @@ const Features = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 
