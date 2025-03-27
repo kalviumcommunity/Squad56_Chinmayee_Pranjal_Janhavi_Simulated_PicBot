@@ -11,6 +11,7 @@ function Generator() {
   const [generatedImages, setGeneratedImages] = useState([]);  
   const [loading, setLoading] = useState(false); 
 
+
   const handleSearch = async () => {
     if (!prompt.trim()) {
       alert("Please enter a valid prompt.");
@@ -19,6 +20,10 @@ function Generator() {
 
     setLoading(true); 
     
+  const handleSearch = () => {
+    setLoading(true);
+
+
     const form = new FormData();
     form.append('prompt', prompt);
 
@@ -96,7 +101,11 @@ function Generator() {
           </button>
         </div>
         <div className="heart-icon">
+
           <span><img src={Heart} alt="Saved Images" /></span>
+
+          <span><img src={Heart} alt="Saved"/></span>
+
         </div>
       </nav>
 
