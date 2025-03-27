@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './FeedbackForm.css'; // Import CSS file
+import './FeedbackForm.css'; 
 
 const FeedbackForm = () => {
     const [name, setName] = useState('');

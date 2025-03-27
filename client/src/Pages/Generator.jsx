@@ -6,39 +6,52 @@ import { BsShareFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { RiDownload2Fill } from "react-icons/ri";
 
-
-// const staticImageUrl = "https://static.vecteezy.com/system/resources/thumbnails/024/179/673/small_2x/pure-blue-sky-white-clouds-the-strong-light-through-the-clouds-shines-straight-on-the-endless-sea-of-white-tulip-flowers-ai-generative-photo.jpg";
-
 function Generator() {
   const [prompt, setPrompt] = useState('');
   const [generatedImages, setGeneratedImages] = useState([]);  
   const [loading, setLoading] = useState(false); 
 
+
+  const handleSearch = async () => {
+    if (!prompt.trim()) {
+      alert("Please enter a valid prompt.");
+      return;
+    }
+
+    setLoading(true); 
+    
   const handleSearch = () => {
     setLoading(true);
+
 
     const form = new FormData();
     form.append('prompt', prompt);
 
-    fetch('https://clipdrop-api.co/text-to-image/v1', {
-      method: 'POST',
-      headers: {
-        'x-api-key': 'debc763737bb4bda58b1708f8cbba5f976890a8963a22a6004d715911b8182432fc2283dc749813e6cc6e67641e7cfd3',
-      },
-      body: form,
-    })
-      .then(response => response.blob())
-      .then(blob => {
-        const imageUrl = URL.createObjectURL(blob);
-        setGeneratedImages(prevImages => [...prevImages, imageUrl]);  
-        setLoading(false); 
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setLoading(false); 
+    try {
+      const response = await fetch('https://clipdrop-api.co/text-to-image/v1', {
+        method: 'POST',
+        headers: {
+          'x-api-key': 'e69b2b9c6c1cdded9d4b33c069ac974e4dfaa5e8b06a724989f04995902caab74932b3aeef10701febb6ea2c999ae9d5',
+        },
+        body: form,
       });
+
+      if (!response.ok) {
+        throw new Error(`API request failed with status: ${response.status}`);
+      }
+
+      const arrayBuffer = await response.arrayBuffer();
+      const blob = new Blob([arrayBuffer], { type: 'image/png' });
+      const imageUrl = URL.createObjectURL(blob);
+
+      setGeneratedImages(prevImages => [...prevImages, imageUrl]);  
+    } catch (error) {
+      console.error('Error:', error);
+      alert("Failed to generate image. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
-  
 
   const handleDownload = (imageUrl) => {
     const link = document.createElement('a');
@@ -49,34 +62,25 @@ function Generator() {
     document.body.removeChild(link);
   };
 
-  const handleShare = (imageUrl) => {
-    fetch(imageUrl)
-      .then(res => res.blob())
-      .then(blob => {
-        const reader = new FileReader();
-        reader.onloadend = function () {
-          const base64data = reader.result;
-          if (navigator.share) {
-            navigator.share({
-              title: 'Check out this image!',
-              text: 'I generated this image using PICBOT!',
-              files: [
-                new File([blob], `GeneratedImage_${new Date().getTime()}.png`, { type: blob.type })
-              ]
-            }).then(() => {
-              console.log('Image shared successfully!');
-            }).catch((error) => {
-              console.error('Error sharing:', error);
-            });
-          } else {
-            alert('Web Share API is not supported in your browser.');
-          }
-        }
-        reader.readAsDataURL(blob);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+  const handleShare = async (imageUrl) => {
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const file = new File([blob], `GeneratedImage_${new Date().getTime()}.png`, { type: 'image/png' });
+
+      if (navigator.share) {
+        await navigator.share({
+          title: 'Check out this AI-generated image!',
+          text: 'I created this image using PICBOT!',
+          files: [file]
+        });
+        console.log('Image shared successfully!');
+      } else {
+        alert('Web Share API is not supported in your browser.');
+      }
+    } catch (error) {
+      console.error('Error sharing image:', error);
+    }
   };
 
   return (
@@ -92,28 +96,34 @@ function Generator() {
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
           />
-          <button className="search-button" onClick={handleSearch}>Search</button>
+          <button className="search-button" onClick={handleSearch}>
+            {loading ? "Generating..." : "Generate"}
+          </button>
         </div>
         <div className="heart-icon">
+
+          <span><img src={Heart} alt="Saved Images" /></span>
+
           <span><img src={Heart} alt="Saved"/></span>
+
         </div>
       </nav>
 
       <div className='display'>
-        {loading && <p>Loading...</p>}  
+        {loading && <p>Generating image...</p>}  
         {generatedImages.map((image, index) => (
           <div className="image-container" key={index}>
             <img width={400} src={image} alt={`Generated ${index + 1}`} />
             <div className="overlay">
-              { <RiDownload2Fill 
+              <RiDownload2Fill 
                 className="iconss" 
                 onClick={() => handleDownload(image)}
-              /> }
-              <BsShareFill 
-                 className='iconss'
-                  onClick={() => handleShare(image)} 
               />
-              { <CiHeart className="iconss"/> }
+              <BsShareFill 
+                className='iconss'
+                onClick={() => handleShare(image)} 
+              />
+              <CiHeart className="iconss" />
             </div>
           </div>
         ))}
