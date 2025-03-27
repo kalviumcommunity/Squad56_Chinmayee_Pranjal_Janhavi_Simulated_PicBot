@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import  { useEffect, useRef } from 'react';
 import './Features.css';
 import img1 from '../assets/1.jpeg';
 import img2 from '../assets/2.jpeg';
@@ -101,10 +101,7 @@ const Features = () => {
           <div className="feature-info">
             <h2>{feature.title}</h2>
             <p>{feature.description}</p>
-            <div className="generate">
-              <input type="text" />
-              <button className="generateBtn"> ✨Generate</button>
-            </div>
+            
           </div>
         </div>
       ))}

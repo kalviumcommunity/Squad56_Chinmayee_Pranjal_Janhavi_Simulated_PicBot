@@ -52,34 +52,7 @@
   color: #555;
 }
 
-.generate {
-  border: 1px solid rgb(114, 114, 114);
-  margin-top: 2vw;
-  width: 25vw;
-  height: 2vh;
-  padding: 1.15vw;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.generate input {
-  width: 20vw;
-  height: 4.5vh;
-  border: none;
-}
-
-.generateBtn {
-  font-family: 'Inter', sans-serif;
-  width: 8vw;
-  padding: 0.55vw;
-  font-size: 13px;
-  background-color: #AE1FB2;
-  color: rgb(255, 255, 255);
-  border: none;
-  border-radius: 5px;
-}
 
 .reveal {
   opacity: 1 !important;

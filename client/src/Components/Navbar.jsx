@@ -1,4 +1,3 @@
-import React from 'react'
 import Logo from '../assets/logo.png'
 import Heart from '../assets/saved.png'
 import './Navbar.css'

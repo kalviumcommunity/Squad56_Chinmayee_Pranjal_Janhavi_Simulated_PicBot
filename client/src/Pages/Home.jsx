@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Navbar from "../Components/Navbar";
 import Homepic from "../assets/Home.png";
 import './Home.css';
@@ -34,10 +34,9 @@ function Home() {
         <div className="text" ref={textRef}>
           <h1>Picbot, Where Imagination Meets Innovation!</h1>
           <p>Dive into a world where your creative ideas come to life with just a few clicks. Our AI-powered image generator is designed to transform your thoughts into stunning visuals, effortlessly and instantly.</p>
-          <div className="generate">
-            <input type="text" />
-            <NavLink to={"/aigenerator"}><button className='generateBtn'> ✨Generate</button></NavLink>
-          </div>
+            <NavLink to={"/aigenerator"}>
+              <button className='generateBtn'>✨ Generate</button>
+            </NavLink>
         </div>
         <img src={Homepic} alt="Picbot Home" ref={imageRef} />
       </div>

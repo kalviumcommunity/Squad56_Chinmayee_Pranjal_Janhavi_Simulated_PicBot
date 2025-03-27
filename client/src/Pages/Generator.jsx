@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import "./Generator.css";
 import Logo from '../assets/logo.png';
 import Heart from '../assets/saved.png';
 import { BsShareFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { RiDownload2Fill } from "react-icons/ri";
-
+import { NavLink } from 'react-router-dom'
 function Generator() {
   const [prompt, setPrompt] = useState('');
   const [generatedImages, setGeneratedImages] = useState([]);  
-  const [loading, setLoading] = useState(false); 
-
+  const [loading, setLoading] = useState(false);  
 
   const handleSearch = async () => {
     if (!prompt.trim()) {
@@ -18,11 +17,7 @@ function Generator() {
       return;
     }
 
-    setLoading(true); 
-    
-  const handleSearch = () => {
     setLoading(true);
-
 
     const form = new FormData();
     form.append('prompt', prompt);
@@ -31,7 +26,7 @@ function Generator() {
       const response = await fetch('https://clipdrop-api.co/text-to-image/v1', {
         method: 'POST',
         headers: {
-          'x-api-key': 'e69b2b9c6c1cdded9d4b33c069ac974e4dfaa5e8b06a724989f04995902caab74932b3aeef10701febb6ea2c999ae9d5',
+          'x-api-key': 'e69b2b9c6c1cdded9d4b33c069ac974e4dfaa5e8b06a724989f04995902caab74932b3aeef10701febb6ea2c999ae9d5'
         },
         body: form,
       });
@@ -87,7 +82,7 @@ function Generator() {
     <>
       <nav className="nav">
         <div className="logo">
-          <img src={Logo} alt="PICBOT" />
+         <NavLink to="/"><img src={Logo} alt="PICBOT" /></NavLink> 
         </div>
         <div className="search-bar">
           <input 
@@ -96,16 +91,12 @@ function Generator() {
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
           />
-          <button className="search-button" onClick={handleSearch}>
+          <button className="search-button" onClick={handleSearch} disabled={loading}>
             {loading ? "Generating..." : "Generate"}
           </button>
         </div>
         <div className="heart-icon">
-
           <span><img src={Heart} alt="Saved Images" /></span>
-
-          <span><img src={Heart} alt="Saved"/></span>
-
         </div>
       </nav>
 

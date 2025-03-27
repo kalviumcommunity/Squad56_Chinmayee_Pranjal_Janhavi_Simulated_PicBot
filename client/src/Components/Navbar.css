@@ -1,30 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-.navbar{
-    display:flex;
+.navbar {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 3px 3px 4px rgba(140, 140, 140, 0.87);
+    padding: 1.2vw 3vw;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(140, 140, 140, 0.2);
+    font-family: 'Inter', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo{
-    margin-top:1vw;
-    margin-left: 2vw;
-    width: 12vw;
+/* Logo Styling */
+.logo {
+    width: 10vw;
+    max-width: 140px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.icons{
-    width: 40vw;
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Icons Container */
+.icons {
     display: flex;
     justify-content: space-evenly;
-    font-size:20px;
-    font-family: 'Inter', sans-serif ;
+    align-items: center;
+    width: 40vw;
+    max-width: 450px;
+    font-size: 18px;
     font-weight: 700;
     color: #424242;
-    align-items: center;
-
 }
 
-.likes{
+/* NavLink Styling */
+.icons a {
+    text-decoration: none;
+    color: #424242;
+    padding: 0.5vw 1vw;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.icons a:hover {
+    color: #007BFF; /* Modern Blue Accent */
+    transform: scale(1.1);
+}
+
+/* Special Styling for Login Button */
+.createAccount {
+    background: linear-gradient(90deg, #007BFF, #0056b3);
+    color: white !important;
+    padding: 0.6vw 1.5vw;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.createAccount:hover {
+    background: linear-gradient(90deg, #0056b3, #003a80);
+    transform: scale(1.1);
+}
+
+/* Likes Icon */
+.likes {
     width: 2.5vw;
+    max-width: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.likes:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        padding: 2vw 5vw;
+    }
+
+    .logo {
+        width: 15vw;
+    }
+
+    .icons {
+        width: 50vw;
+        font-size: 16px;
+    }
+
+    .likes {
+        width: 4vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3vw;
+    }
+
+    .logo {
+        width: 18vw;
+    }
+
+    .icons {
+        width: 60vw;
+        font-size: 14px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2vw;
+    }
+
+    .createAccount {
+        font-size: 14px;
+        padding: 2vw 4vw;
+    }
+
+    .likes {
+        width: 5vw;
+    }
 }
